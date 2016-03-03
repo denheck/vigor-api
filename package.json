@@ -1,0 +1,17 @@
+{
+  "name": "vigor-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "keywords": [
+    "vigor"
+  ],
+  "author": "Dennis Heckman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
