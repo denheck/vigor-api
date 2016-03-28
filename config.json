@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "models": {
+      "client": "mysql",
+      "connection": {
+        "host": "mysql",
+        "port": 3306,
+        "user": "root",
+        "password": "root",
+        "database": "vigor-api",
+        "charset": "utf8"
+      }
+    },
+    "port": 5000
+  }
+}

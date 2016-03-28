@@ -1,8 +1,14 @@
-const express = require('express');
-const app = express();
-const port = 5000;
+const process = require('process');
+const fs = require('fs');
+const mysql = require('mysql');
+const startApi = require('./lib/start-api.js');
+const createModels = require('./lib/models/create-models.js');
 
-app.get('/', (req, res) => res.send("Welcome to the Vigor API"));
+const env = process.env.ENVIRONMENT || 'dev';
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'))[env];
+const port = config['port'];
+const Models = createModels(config['models']);
+const isProduction = env === 'production';
 
-
-app.listen(port, () => console.log(`Listening on port: ${port}...`));
+console.log("Launching API...");
+startApi(port, Models, isProduction, () => console.log(`Listening on port: ${port}...`));
